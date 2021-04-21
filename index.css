@@ -401,6 +401,7 @@ body {
   margin: 0 auto;
   background-color: #090b1a;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -503,10 +504,9 @@ body {
   }
 }
 footer {
-  position: absolute;
-  bottom: 0;
   text-align: center;
   width: 100vw;
+  margin-top: 50px;
 }
 footer p {
   color: white;
