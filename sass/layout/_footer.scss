@@ -1,0 +1,34 @@
+@use '../themes/theme';
+
+footer {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100vw;
+
+  p {
+    color: theme.$mainWhite;
+  }
+
+  a {
+    text-decoration: none;
+    color: theme.$accent;
+    position: relative;
+
+    &::after {
+      display: block;
+      position: absolute;
+      bottom: -0.1rem;
+      left: 0;
+      content: "";
+      width: 0;
+      height: 1px;
+      background: theme.$accent;
+      transition: width 0.4s ease-in;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}

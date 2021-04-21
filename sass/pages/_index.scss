@@ -1,0 +1,135 @@
+@use '../base/typography';
+@use '../themes/theme';
+@use '../abstracts/queries';
+
+$mobileImage: "../images/image-header-mobile.jpg";
+$desktopImage: "../images/image-header-desktop.jpg";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0 auto;
+  background-color: theme.$mainBackground;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 90%;
+  display: flex;
+  flex-flow: column nowrap;
+  border-radius: 0.5rem;
+  background-color: theme.$cardBackground;
+  text-align: center;
+
+  &__image {
+    height: 220px;
+    background: url($mobileImage) center/cover;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(theme.$cardBackground, 0.6);
+      filter: invert(50%) sepia(80%) saturate(210%) hue-rotate(234deg)
+        brightness(67%) contrast(268%);
+    }
+
+    &,
+    &::before {
+      border-radius: 0.5rem 0.5rem 0 0;
+    }
+  }
+
+  .content {
+    width: 90%;
+    margin: 0 auto;
+
+    &__title {
+      margin: 2.2rem 0 1rem;
+    }
+    &__text {
+      color: theme.$mainWhiteParagraph;
+      font-size: 0.9rem;
+      line-height: 1.4rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .information {
+    margin-bottom: 2rem;
+
+    &__title {
+      font-family: "Inter", sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: theme.$mainWhite;
+    }
+
+    &__secondaryText {
+      margin: inherit;
+      margin-top: 0.3rem;
+      text-transform: uppercase;
+      font-family: "Lexend Deca", sans-serif;
+      font-size: 0.7rem;
+      color: theme.$mainWhiteHeading;
+    }
+  }
+}
+
+@include queries.smallScreen {
+  .container__image {
+    min-height: 400px;
+    background-position: center top;
+  }
+}
+
+@include queries.desktop {
+  .container {
+    width: 75%;
+    flex-flow: row-reverse nowrap;
+
+    &__image {
+      height: inherit;
+      background-image: url($desktopImage);
+      min-height: 50vh;
+      min-width: 50%;
+
+      &,
+      &::before {
+        border-radius: 0 0.5rem 0.5rem 0;
+      }
+    }
+
+    .content {
+      text-align: left;
+      padding: 100px 80px 0px;
+
+      &__title {
+        margin-top: 0;
+      }
+
+      &__text {
+        color: theme.$mainWhiteParagraph;
+        font-size: 0.9rem;
+        line-height: 1.4rem;
+        margin-bottom: 2rem;
+      }
+    }
+
+    .information {
+      display: inline-block;
+      margin-right: 2rem;
+      margin-top: 2rem;
+      margin-bottom: 0;
+    }
+  }
+}

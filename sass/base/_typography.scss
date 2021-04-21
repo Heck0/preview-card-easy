@@ -1,3 +1,6 @@
+@use '../themes/theme';
+@use '../abstracts/queries';
+
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lexend+Deca&display=swap");
 
 // font-family: 'Inter', sans-serif;
@@ -6,7 +9,22 @@
 // font-family: 'Lexend Deca', sans-serif;
 // weight 400
 
+h1 {
+  color: theme.$mainWhite;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+
+  @include queries.desktop {
+    font-size: 2.2rem;
+  }
+}
+
 p {
   font-family: "Inter", sans-serif;
   font-weight: 400;
+}
+
+.title--purple {
+  color: theme.$accent;
 }
