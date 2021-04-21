@@ -416,7 +416,7 @@ body {
 }
 .container__image {
   height: 220px;
-  background: url("../images/image-header-mobile.jpg") center/cover;
+  background: url("images/image-header-mobile.jpg") center/cover;
   position: relative;
 }
 .container__image::before {
@@ -476,7 +476,7 @@ body {
   }
   .container__image {
     height: inherit;
-    background-image: url("../images/image-header-desktop.jpg");
+    background-image: url("images/image-header-desktop.jpg");
     min-height: 50vh;
     min-width: 50%;
   }
